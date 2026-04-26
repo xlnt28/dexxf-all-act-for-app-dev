@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Shell
     x:Class="Astronomy.AppShell"
@@ -11,7 +11,11 @@
     ForegroundColor="White"
     TitleColor="White"
     DisabledColor="#64748B"
-    UnselectedColor="#94A3B8">
+    UnselectedColor="#94A3B8"
+    TabBarBackgroundColor="#0F172A"
+    TabBarForegroundColor="#38BDF8"
+    TabBarTitleColor="#38BDF8"
+    TabBarUnselectedColor="#94A3B8">
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -59,17 +63,17 @@
         </Grid>
     </Shell.FlyoutHeader>
 
-    <FlyoutItem Title="Moon Phase" Icon="moon.png">
+    <TabBar Title="Explore" Route="explore">
         <ShellContent
-            Title="Moon Phase"
+            Title="Moon"
+            Icon="moon.png"
             ContentTemplate="{DataTemplate local:MoonPhasePage}" />
-    </FlyoutItem>
 
-    <FlyoutItem Title="Sunrise" Icon="sun.png">
         <ShellContent
-            Title="Sunrise"
+            Title="Daylight"
+            Icon="sun.png"
             ContentTemplate="{DataTemplate local:SunrisePage}" />
-    </FlyoutItem>
+    </TabBar>
 
     <FlyoutItem Title="About" Icon="question.png">
         <ShellContent
@@ -78,4 +82,3 @@
     </FlyoutItem>
 
 </Shell>
-
