@@ -6,24 +6,45 @@
              x:Class="MovieCatalog.Views.MoviesListPage"
              x:DataType="vm:MovieListViewModel"
              Title="Movies"
+             BackgroundColor="#0B1020"
              BindingContext="{x:Static local:App.MainViewModel}">
 
-    <ListView ItemsSource="{Binding Movies}"
-              SelectedItem="{Binding SelectedMovie, Mode=OneWayToSource}"
-              Margin="10"
-              ItemTapped="ListView_ItemTapped">
+    <Grid RowDefinitions="Auto,*" Padding="16" RowSpacing="16">
+        <Border StrokeThickness="0" BackgroundColor="#1D4ED8" StrokeShape="RoundRectangle 24" Padding="18">
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Movie Vault" TextColor="White" FontSize="30" FontAttributes="Bold" />
+                <Label Text="Tap any title to open details. Swipe left to remove it."
+                       TextColor="#DBEAFE"
+                       FontSize="14" />
+            </VerticalStackLayout>
+        </Border>
 
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Title}" x:DataType="vm:MovieViewModel">
-                    <TextCell.ContextActions>
-                        <MenuItem Text="Delete"
-                                  IsDestructive="True"
-                                  Clicked="MenuItem_Clicked" />
-                    </TextCell.ContextActions>
-                </TextCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
+        <ListView Grid.Row="1"
+                  BackgroundColor="#0B1020"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None"
+                  ItemsSource="{Binding Movies}"
+                  SelectedItem="{Binding SelectedMovie, Mode=OneWayToSource}"
+                  ItemTapped="ListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:MovieViewModel">
+                    <ViewCell>
+                        <Border Margin="0,0,0,12" Padding="14" BackgroundColor="#111827" Stroke="#334155" StrokeShape="RoundRectangle 16">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                                <Label Text="🎬" FontSize="28" VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <Label Text="{Binding Title}" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                                    <Label Text="Tap to view movie details" TextColor="#94A3B8" FontSize="13" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
 
-    </ListView>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" IsDestructive="True" Clicked="MenuItem_Clicked" />
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>

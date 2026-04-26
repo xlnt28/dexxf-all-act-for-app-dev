@@ -4,16 +4,31 @@
              xmlns:vm="clr-namespace:MovieCatalog.ViewModels"
              x:Class="MovieCatalog.Views.MovieDetailPage"
              x:DataType="vm:MovieViewModel"
-             Title="Movie">
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" Margin="10">
-        <Label Text="Title:" Grid.Row="0" />
-        <Label Text="Year:" Grid.Row="1" />
-        <Label Text="Studio:" Grid.Row="2" />
-        <Label Text="Director:" Margin="0,0,5,0" Grid.Row="3" />
+             Title="Movie"
+             BackgroundColor="#020617">
 
-        <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="1" />
-        <Label Text="{Binding Year, StringFormat='{0:yyyy}'}" Grid.Row="1" Grid.Column="1" />
-        <Label Text="{Binding Studio}" Grid.Row="2" Grid.Column="1" />
-        <Label Text="{Binding Director}" Grid.Row="3" Grid.Column="1" />
-    </Grid>
+    <ScrollView>
+        <Grid Padding="18" RowDefinitions="Auto,Auto" RowSpacing="16">
+            <Border StrokeThickness="0" BackgroundColor="#7C3AED" StrokeShape="RoundRectangle 24" Padding="20">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Now Viewing" TextColor="#EDE9FE" FontSize="13" />
+                    <Label Text="{Binding Title}" TextColor="White" FontSize="30" FontAttributes="Bold" />
+                    <Label Text="Released {Binding Year, StringFormat='{0:yyyy}'}" TextColor="#E9D5FF" FontSize="14" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Row="1" BackgroundColor="#0F172A" Stroke="#334155" StrokeShape="RoundRectangle 22" Padding="16">
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="14" ColumnSpacing="16">
+                    <Label Text="Studio" TextColor="#93C5FD" FontAttributes="Bold" />
+                    <Label Grid.Column="1" Text="{Binding Studio}" TextColor="White" />
+
+                    <Label Grid.Row="1" Text="Director" TextColor="#93C5FD" FontAttributes="Bold" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Director}" TextColor="White" />
+
+                    <Label Grid.Row="2" Text="Year" TextColor="#93C5FD" FontAttributes="Bold" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Year, StringFormat='{0:yyyy}'}" TextColor="White" />
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollView>
 </ContentPage>
