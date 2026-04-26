@@ -1,11 +1,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Astronomy.Pages.AboutPage"
-             Title="About Contoso Astronomy">
+             Title="About"
+             BackgroundColor="#0F172A">
 
-    <StackLayout Padding="10" Spacing="5">
-        <Label Text="Version 1.0.0" />
-        <Label Text="Sunrise/Sunset data provided by: https://sunrise-sunset.org/api" />
-        <Label Text="Icons from Font Awesome" />
-    </StackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+            <Border StrokeThickness="0" BackgroundColor="#0EA5E9" StrokeShape="RoundRectangle 20" Padding="16">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Contoso Astronomy" TextColor="#082F49" FontSize="26" FontAttributes="Bold" />
+                    <Label Text="Learn sunrise and lunar patterns" TextColor="#0C4A6E" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Stroke="#334155" BackgroundColor="#111827" StrokeShape="RoundRectangle 16" Padding="14">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Version 1.0.0" TextColor="White" FontAttributes="Bold" />
+                    <Label Text="Sunrise and sunset data source:" TextColor="#67E8F9" />
+                    <Label Text="https://sunrise-sunset.org/api" TextColor="#E2E8F0" />
+                    <Label Text="Icons are from Font Awesome." TextColor="#E2E8F0" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
