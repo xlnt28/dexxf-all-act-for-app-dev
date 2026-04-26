@@ -1,31 +1,73 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Notes.MainPage">
+             x:Class="Notes.MainPage"
+             BackgroundColor="#FFF7ED">
 
-    <VerticalStackLayout Margin="30,60,30,30">
+    <Grid Padding="20,42,20,20" RowDefinitions="Auto,*">
 
-        <Label Text="Notes"
-               HorizontalOptions="Center"
-               FontAttributes="Bold" />
+        <Border BackgroundColor="#FB923C"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 28"
+                Padding="20">
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Daily Notes"
+                       TextColor="#7C2D12"
+                       FontSize="32"
+                       FontAttributes="Bold" />
+                <Label Text="Capture ideas quickly, then save or clear when you’re done."
+                       TextColor="#9A3412"
+                       FontSize="14" />
+            </VerticalStackLayout>
+        </Border>
 
-        <Editor x:Name="editor"
-                Placeholder="Enter your note"
-                HeightRequest="100" />
+        <Border Grid.Row="1"
+                Margin="0,18,0,0"
+                Padding="16"
+                BackgroundColor="#FFEDD5"
+                Stroke="#FDBA74"
+                StrokeThickness="2"
+                StrokeShape="RoundRectangle 24">
+            <VerticalStackLayout Spacing="14">
+                <Label Text="What’s on your mind?"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="#7C2D12" />
 
-        <Grid ColumnDefinitions="Auto, 30, Auto">
+                <Border Padding="12,8"
+                        BackgroundColor="#FFFFFF"
+                        Stroke="#FED7AA"
+                        StrokeShape="RoundRectangle 16">
+                    <Editor x:Name="editor"
+                            Placeholder="Write your note here"
+                            PlaceholderColor="#C2410C"
+                            AutoSize="TextChanges"
+                            HeightRequest="160"
+                            TextColor="#431407" />
+                </Border>
 
-            <Button Grid.Column="0"
-                    Text="Save"
-                    WidthRequest="100"
-                    Clicked="OnSaveButtonClicked" />
+                <Grid ColumnDefinitions="*,12,*">
 
-            <Button Grid.Column="2"
-                    Text="Delete"
-                    WidthRequest="100"
-                    Clicked="OnDeleteButtonClicked" />
+                    <Button Grid.Column="0"
+                            Text="Save Note"
+                            HeightRequest="48"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            BackgroundColor="#EA580C"
+                            CornerRadius="14"
+                            Clicked="OnSaveButtonClicked" />
 
-        </Grid>
+                    <Button Grid.Column="2"
+                            Text="Delete Note"
+                            HeightRequest="48"
+                            FontAttributes="Bold"
+                            TextColor="#7C2D12"
+                            BackgroundColor="#FED7AA"
+                            CornerRadius="14"
+                            Clicked="OnDeleteButtonClicked" />
 
-    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
 </ContentPage>

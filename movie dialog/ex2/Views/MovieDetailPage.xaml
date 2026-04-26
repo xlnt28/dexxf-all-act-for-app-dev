@@ -5,28 +5,28 @@
              x:Class="MovieCatalog.Views.MovieDetailPage"
              x:DataType="vm:MovieViewModel"
              Title="Movie"
-             BackgroundColor="#020617">
+             BackgroundColor="#022C22">
 
     <ScrollView>
         <Grid Padding="18" RowDefinitions="Auto,Auto" RowSpacing="16">
-            <Border StrokeThickness="0" BackgroundColor="#0EA5E9" StrokeShape="RoundRectangle 24" Padding="20">
+            <Border StrokeThickness="0" BackgroundColor="#10B981" StrokeShape="RoundRectangle 24" Padding="20">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Selected Film" TextColor="#083344" FontSize="13" />
-                    <Label Text="{Binding Title}" TextColor="#082F49" FontSize="30" FontAttributes="Bold" />
-                    <Label Text="Year: {Binding Year, StringFormat='{0:yyyy}'}" TextColor="#0C4A6E" FontSize="14" />
+                    <Label Text="Currently Selected" TextColor="#064E3B" FontSize="13" />
+                    <Label Text="{Binding Title}" TextColor="#022C22" FontSize="30" FontAttributes="Bold" />
+                    <Label Text="Year: {Binding Year, StringFormat='{0:yyyy}'}" TextColor="#065F46" FontSize="14" />
                 </VerticalStackLayout>
             </Border>
 
-            <Border Grid.Row="1" BackgroundColor="#0F172A" Stroke="#334155" StrokeShape="RoundRectangle 22" Padding="16">
+            <Border Grid.Row="1" BackgroundColor="#064E3B" Stroke="#6EE7B7" StrokeShape="RoundRectangle 22" Padding="16">
                 <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" RowSpacing="14" ColumnSpacing="16">
-                    <Label Text="Studio" TextColor="#67E8F9" FontAttributes="Bold" />
-                    <Label Grid.Column="1" Text="{Binding Studio}" TextColor="White" />
+                    <Label Text="Studio" TextColor="#A7F3D0" FontAttributes="Bold" />
+                    <Label Grid.Column="1" Text="{Binding Studio}" TextColor="#ECFDF5" />
 
-                    <Label Grid.Row="1" Text="Director" TextColor="#67E8F9" FontAttributes="Bold" />
-                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Director}" TextColor="White" />
+                    <Label Grid.Row="1" Text="Director" TextColor="#A7F3D0" FontAttributes="Bold" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Director}" TextColor="#ECFDF5" />
 
-                    <Label Grid.Row="2" Text="Release" TextColor="#67E8F9" FontAttributes="Bold" />
-                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Year, StringFormat='{0:yyyy}'}" TextColor="White" />
+                    <Label Grid.Row="2" Text="Release" TextColor="#A7F3D0" FontAttributes="Bold" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Year, StringFormat='{0:yyyy}'}" TextColor="#ECFDF5" />
                 </Grid>
             </Border>
         </Grid>

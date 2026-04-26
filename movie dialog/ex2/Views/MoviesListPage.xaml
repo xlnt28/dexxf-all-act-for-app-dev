@@ -6,21 +6,21 @@
              x:Class="MovieCatalog.Views.MoviesListPage"
              x:DataType="vm:MovieListViewModel"
              Title="Movies"
-             BackgroundColor="#0B1020"
+             BackgroundColor="#052E2B"
              BindingContext="{x:Static local:App.MainViewModel}">
 
     <Grid RowDefinitions="Auto,*" Padding="16" RowSpacing="16">
-        <Border StrokeThickness="0" BackgroundColor="#0EA5E9" StrokeShape="RoundRectangle 24" Padding="18">
+        <Border StrokeThickness="0" BackgroundColor="#34D399" StrokeShape="RoundRectangle 24" Padding="18">
             <VerticalStackLayout Spacing="6">
-                <Label Text="Cinema Browser" TextColor="#082F49" FontSize="30" FontAttributes="Bold" />
-                <Label Text="Tap a movie for details. Swipe left to delete using command binding."
-                       TextColor="#083344"
+                <Label Text="Greenlight Catalog" TextColor="#022C22" FontSize="30" FontAttributes="Bold" />
+                <Label Text="Tap a film for details. Swipe left to delete via command binding."
+                       TextColor="#064E3B"
                        FontSize="14" />
             </VerticalStackLayout>
         </Border>
 
         <ListView Grid.Row="1"
-                  BackgroundColor="#0B1020"
+                  BackgroundColor="#052E2B"
                   HasUnevenRows="True"
                   SeparatorVisibility="None"
                   ItemsSource="{Binding Movies}"
@@ -29,12 +29,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:MovieViewModel">
                     <ViewCell>
-                        <Border Margin="0,0,0,12" Padding="14" BackgroundColor="#111827" Stroke="#334155" StrokeShape="RoundRectangle 16">
+                        <Border Margin="0,0,0,12" Padding="14" BackgroundColor="#064E3B" Stroke="#6EE7B7" StrokeShape="RoundRectangle 16">
                             <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                                <Label Text="🍿" FontSize="28" VerticalOptions="Center" />
+                                <Label Text="🎞️" FontSize="28" VerticalOptions="Center" />
                                 <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                    <Label Text="{Binding Title}" TextColor="White" FontSize="18" FontAttributes="Bold" />
-                                    <Label Text="Open details page" TextColor="#94A3B8" FontSize="13" />
+                                    <Label Text="{Binding Title}" TextColor="#ECFDF5" FontSize="18" FontAttributes="Bold" />
+                                    <Label Text="View cast and production info" TextColor="#A7F3D0" FontSize="13" />
                                 </VerticalStackLayout>
                             </Grid>
                         </Border>

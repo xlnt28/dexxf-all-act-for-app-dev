@@ -3,38 +3,38 @@
     x:Class="People.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="#070B14">
+    BackgroundColor="#ECFEFF">
 
     <Grid RowDefinitions="Auto,*" Padding="20,26,20,18" RowSpacing="16">
 
         <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="6">
             <Label
-                Text="SQLite People Studio"
+                Text="People Ledger"
                 FontSize="32"
                 FontAttributes="Bold"
-                TextColor="#F8FAFC" />
+                TextColor="#164E63" />
 
             <Label
                 Grid.Row="1"
-                Text="A redesigned workspace for managing local names"
+                Text="Warm daylight theme for your SQLite records"
                 FontSize="14"
-                TextColor="#94A3B8" />
+                TextColor="#0E7490" />
 
             <Border
                 Grid.Row="2"
                 Margin="0,10,0,0"
                 Padding="12,8"
                 HorizontalOptions="Start"
-                BackgroundColor="#1E293B"
-                Stroke="#334155"
+                BackgroundColor="#CFFAFE"
+                Stroke="#67E8F9"
                 StrokeShape="RoundRectangle 999">
                 <HorizontalStackLayout Spacing="8">
-                    <Label Text="💾" FontSize="14" />
+                    <Label Text="📀" FontSize="14" />
                     <Label
-                        Text="SQLite Connected"
+                        Text="Database Ready"
                         FontSize="12"
                         FontAttributes="Bold"
-                        TextColor="#C7D2FE" />
+                        TextColor="#155E75" />
                 </HorizontalStackLayout>
             </Border>
         </Grid>
@@ -43,31 +43,31 @@
 
             <Border
                 Padding="18"
-                BackgroundColor="#0F172A"
-                Stroke="#1E293B"
+                BackgroundColor="#FFFFFF"
+                Stroke="#A5F3FC"
                 StrokeThickness="1"
                 StrokeShape="RoundRectangle 24">
 
                 <VerticalStackLayout Spacing="14">
                     <Label
-                        Text="Add a Person"
+                        Text="Create Person"
                         FontSize="18"
                         FontAttributes="Bold"
-                        TextColor="#E2E8F0" />
+                        TextColor="#0C4A6E" />
 
                     <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
                         <Border
-                            Stroke="#334155"
+                            Stroke="#BAE6FD"
                             StrokeThickness="1"
-                            BackgroundColor="#020617"
+                            BackgroundColor="#F0FDFF"
                             Padding="12,2"
                             StrokeShape="RoundRectangle 16">
                             <Entry
                                 x:Name="newPerson"
                                 Placeholder="Type full name"
-                                PlaceholderColor="#64748B"
+                                PlaceholderColor="#0891B2"
                                 FontSize="16"
-                                TextColor="#E2E8F0"
+                                TextColor="#083344"
                                 ClearButtonVisibility="WhileEditing" />
                         </Border>
 
@@ -79,13 +79,13 @@
                             HeightRequest="48"
                             FontAttributes="Bold"
                             TextColor="White"
-                            BackgroundColor="#2563EB"
+                            BackgroundColor="#06B6D4"
                             CornerRadius="14" />
                     </Grid>
 
                     <Label
                         x:Name="statusMessage"
-                        TextColor="#86EFAC"
+                        TextColor="#0E7490"
                         FontSize="13" />
                 </VerticalStackLayout>
             </Border>
@@ -93,8 +93,8 @@
             <Border
                 Grid.Row="1"
                 Padding="14"
-                BackgroundColor="#111827"
-                Stroke="#1F2937"
+                BackgroundColor="#E0F2FE"
+                Stroke="#BAE6FD"
                 StrokeShape="RoundRectangle 20">
                 <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14" VerticalOptions="Center">
                     <VerticalStackLayout Spacing="2">
@@ -102,11 +102,11 @@
                             Text="Saved Records"
                             FontSize="17"
                             FontAttributes="Bold"
-                            TextColor="#F8FAFC" />
+                            TextColor="#0C4A6E" />
                         <Label
-                            Text="Tap refresh to load everyone from SQLite"
+                            Text="Tap refresh to sync with your local table"
                             FontSize="12"
-                            TextColor="#9CA3AF" />
+                            TextColor="#0369A1" />
                     </VerticalStackLayout>
 
                     <Button
@@ -125,8 +125,8 @@
             <Border
                 Grid.Row="2"
                 Padding="12"
-                BackgroundColor="#0B1220"
-                Stroke="#1E293B"
+                BackgroundColor="#FFFFFF"
+                Stroke="#BAE6FD"
                 StrokeShape="RoundRectangle 24">
                 <CollectionView
                     x:Name="peopleList"
@@ -135,15 +135,15 @@
                     <CollectionView.EmptyView>
                         <VerticalStackLayout Padding="26" Spacing="8">
                             <Label
-                                Text="No entries yet"
+                                Text="No people yet"
                                 HorizontalTextAlignment="Center"
-                                TextColor="#CBD5E1"
+                                TextColor="#155E75"
                                 FontSize="16"
                                 FontAttributes="Bold" />
                             <Label
-                                Text="Create your first person above, then refresh this list."
+                                Text="Add your first record above, then refresh."
                                 HorizontalTextAlignment="Center"
-                                TextColor="#64748B"
+                                TextColor="#0E7490"
                                 FontSize="13" />
                         </VerticalStackLayout>
                     </CollectionView.EmptyView>
@@ -153,19 +153,19 @@
                             <Grid Padding="6,6,6,8">
                                 <Border
                                     Padding="14"
-                                    BackgroundColor="#111827"
-                                    Stroke="#374151"
+                                    BackgroundColor="#F0FDFF"
+                                    Stroke="#67E8F9"
                                     StrokeThickness="1"
                                     StrokeShape="RoundRectangle 18">
                                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
                                         <Border
                                             WidthRequest="44"
                                             HeightRequest="44"
-                                            BackgroundColor="#1D4ED8"
+                                            BackgroundColor="#06B6D4"
                                             StrokeThickness="0"
                                             StrokeShape="RoundRectangle 14">
                                             <Label
-                                                Text="👤"
+                                                Text="🙂"
                                                 HorizontalOptions="Center"
                                                 VerticalOptions="Center"
                                                 FontSize="20" />
@@ -174,21 +174,21 @@
                                         <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
                                             <Label
                                                 Text="{Binding Name}"
-                                                TextColor="#F8FAFC"
+                                                TextColor="#083344"
                                                 FontSize="17"
                                                 FontAttributes="Bold" />
                                             <Label
-                                                Text="{Binding Id, StringFormat='SQLite row #{0}'}"
-                                                TextColor="#94A3B8"
+                                                Text="{Binding Id, StringFormat='Record #{0}'}"
+                                                TextColor="#0E7490"
                                                 FontSize="12" />
                                         </VerticalStackLayout>
 
                                         <Label
                                             Grid.Column="2"
-                                            Text="LOCAL"
+                                            Text="SQL"
                                             VerticalOptions="Center"
                                             FontSize="10"
-                                            TextColor="#93C5FD"
+                                            TextColor="#0891B2"
                                             FontAttributes="Bold" />
                                     </Grid>
                                 </Border>
