@@ -1,147 +1,202 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="People.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="#101828">
+    BackgroundColor="#070B14">
 
-    <Grid RowDefinitions="Auto,*" Padding="24">
+    <Grid RowDefinitions="Auto,*" Padding="20,26,20,18" RowSpacing="16">
 
-        <VerticalStackLayout Spacing="8" Margin="0,20,0,24">
+        <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="6">
             <Label
-                Text="People Vault"
-                FontSize="34"
+                Text="SQLite People Studio"
+                FontSize="32"
                 FontAttributes="Bold"
-                TextColor="White" />
+                TextColor="#F8FAFC" />
 
             <Label
-                Text="Save names locally with SQLite"
-                FontSize="15"
-                TextColor="#98A2B3" />
-        </VerticalStackLayout>
+                Grid.Row="1"
+                Text="A redesigned workspace for managing local names"
+                FontSize="14"
+                TextColor="#94A3B8" />
 
-        <Border
-            Grid.Row="1"
-            StrokeThickness="0"
-            BackgroundColor="#1D2939"
-            Padding="22"
-            StrokeShape="RoundRectangle 28">
-
-            <VerticalStackLayout Spacing="18">
-
-                <Border
-                    Stroke="#344054"
-                    StrokeThickness="1"
-                    BackgroundColor="#111827"
-                    Padding="14"
-                    StrokeShape="RoundRectangle 18">
-
-                    <Entry
-                        x:Name="newPerson"
-                        Placeholder="Enter a name"
-                        PlaceholderColor="#667085"
-                        TextColor="White"
-                        FontSize="16"
-                        ClearButtonVisibility="WhileEditing" />
-                </Border>
-
-                <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
-                    <Button
-                        Text="Add Person"
-                        Clicked="OnNewButtonClicked"
-                        BackgroundColor="#7C3AED"
-                        TextColor="White"
+            <Border
+                Grid.Row="2"
+                Margin="0,10,0,0"
+                Padding="12,8"
+                HorizontalOptions="Start"
+                BackgroundColor="#1E293B"
+                Stroke="#334155"
+                StrokeShape="RoundRectangle 999">
+                <HorizontalStackLayout Spacing="8">
+                    <Label Text="💾" FontSize="14" />
+                    <Label
+                        Text="SQLite Connected"
+                        FontSize="12"
                         FontAttributes="Bold"
-                        CornerRadius="18"
-                        HeightRequest="52" />
+                        TextColor="#C7D2FE" />
+                </HorizontalStackLayout>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="1" RowDefinitions="Auto,Auto,*" RowSpacing="14">
+
+            <Border
+                Padding="18"
+                BackgroundColor="#0F172A"
+                Stroke="#1E293B"
+                StrokeThickness="1"
+                StrokeShape="RoundRectangle 24">
+
+                <VerticalStackLayout Spacing="14">
+                    <Label
+                        Text="Add a Person"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#E2E8F0" />
+
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                        <Border
+                            Stroke="#334155"
+                            StrokeThickness="1"
+                            BackgroundColor="#020617"
+                            Padding="12,2"
+                            StrokeShape="RoundRectangle 16">
+                            <Entry
+                                x:Name="newPerson"
+                                Placeholder="Type full name"
+                                PlaceholderColor="#64748B"
+                                FontSize="16"
+                                TextColor="#E2E8F0"
+                                ClearButtonVisibility="WhileEditing" />
+                        </Border>
+
+                        <Button
+                            Grid.Column="1"
+                            Text="Add"
+                            Clicked="OnNewButtonClicked"
+                            WidthRequest="88"
+                            HeightRequest="48"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            BackgroundColor="#2563EB"
+                            CornerRadius="14" />
+                    </Grid>
+
+                    <Label
+                        x:Name="statusMessage"
+                        TextColor="#86EFAC"
+                        FontSize="13" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Border
+                Grid.Row="1"
+                Padding="14"
+                BackgroundColor="#111827"
+                Stroke="#1F2937"
+                StrokeShape="RoundRectangle 20">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="14" VerticalOptions="Center">
+                    <VerticalStackLayout Spacing="2">
+                        <Label
+                            Text="Saved Records"
+                            FontSize="17"
+                            FontAttributes="Bold"
+                            TextColor="#F8FAFC" />
+                        <Label
+                            Text="Tap refresh to load everyone from SQLite"
+                            FontSize="12"
+                            TextColor="#9CA3AF" />
+                    </VerticalStackLayout>
 
                     <Button
                         Grid.Column="1"
-                        Text="Show All"
+                        Text="Refresh"
                         Clicked="OnGetButtonClicked"
-                        BackgroundColor="#06B6D4"
+                        HeightRequest="42"
+                        Padding="18,0"
+                        BackgroundColor="#0EA5E9"
                         TextColor="White"
                         FontAttributes="Bold"
-                        CornerRadius="18"
-                        HeightRequest="52" />
+                        CornerRadius="14" />
                 </Grid>
+            </Border>
 
-                <Label
-                    x:Name="statusMessage"
-                    TextColor="#A7F3D0"
-                    FontSize="14"
-                    HorizontalTextAlignment="Center" />
-
-                <Label
-                    Text="Saved People"
-                    TextColor="White"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    Margin="0,8,0,0" />
-
+            <Border
+                Grid.Row="2"
+                Padding="12"
+                BackgroundColor="#0B1220"
+                Stroke="#1E293B"
+                StrokeShape="RoundRectangle 24">
                 <CollectionView
                     x:Name="peopleList"
                     SelectionMode="None">
 
                     <CollectionView.EmptyView>
-                        <VerticalStackLayout Padding="20" Spacing="8">
+                        <VerticalStackLayout Padding="26" Spacing="8">
                             <Label
-                                Text="No people saved yet"
-                                TextColor="#98A2B3"
+                                Text="No entries yet"
+                                HorizontalTextAlignment="Center"
+                                TextColor="#CBD5E1"
                                 FontSize="16"
-                                HorizontalTextAlignment="Center" />
+                                FontAttributes="Bold" />
                             <Label
-                                Text="Add a name above to get started."
-                                TextColor="#667085"
-                                FontSize="13"
-                                HorizontalTextAlignment="Center" />
+                                Text="Create your first person above, then refresh this list."
+                                HorizontalTextAlignment="Center"
+                                TextColor="#64748B"
+                                FontSize="13" />
                         </VerticalStackLayout>
                     </CollectionView.EmptyView>
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border
-                                Margin="0,6"
-                                Padding="16"
-                                BackgroundColor="#111827"
-                                Stroke="#344054"
-                                StrokeThickness="1"
-                                StrokeShape="RoundRectangle 18">
+                            <Grid Padding="6,6,6,8">
+                                <Border
+                                    Padding="14"
+                                    BackgroundColor="#111827"
+                                    Stroke="#374151"
+                                    StrokeThickness="1"
+                                    StrokeShape="RoundRectangle 18">
+                                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                        <Border
+                                            WidthRequest="44"
+                                            HeightRequest="44"
+                                            BackgroundColor="#1D4ED8"
+                                            StrokeThickness="0"
+                                            StrokeShape="RoundRectangle 14">
+                                            <Label
+                                                Text="👤"
+                                                HorizontalOptions="Center"
+                                                VerticalOptions="Center"
+                                                FontSize="20" />
+                                        </Border>
 
-                                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
-                                    <Border
-                                        WidthRequest="42"
-                                        HeightRequest="42"
-                                        BackgroundColor="#7C3AED"
-                                        StrokeThickness="0"
-                                        StrokeShape="RoundRectangle 21">
+                                        <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                            <Label
+                                                Text="{Binding Name}"
+                                                TextColor="#F8FAFC"
+                                                FontSize="17"
+                                                FontAttributes="Bold" />
+                                            <Label
+                                                Text="{Binding Id, StringFormat='SQLite row #{0}'}"
+                                                TextColor="#94A3B8"
+                                                FontSize="12" />
+                                        </VerticalStackLayout>
 
                                         <Label
-                                            Text="👤"
-                                            FontSize="20"
-                                            HorizontalOptions="Center"
-                                            VerticalOptions="Center" />
-                                    </Border>
-
-                                    <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                        <Label
-                                            Text="{Binding Name}"
-                                            TextColor="White"
-                                            FontSize="17"
+                                            Grid.Column="2"
+                                            Text="LOCAL"
+                                            VerticalOptions="Center"
+                                            FontSize="10"
+                                            TextColor="#93C5FD"
                                             FontAttributes="Bold" />
-
-                                        <Label
-                                            Text="{Binding Id, StringFormat='ID #{0}'}"
-                                            TextColor="#98A2B3"
-                                            FontSize="12" />
-                                    </VerticalStackLayout>
-                                </Grid>
-                            </Border>
+                                    </Grid>
+                                </Border>
+                            </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-
-            </VerticalStackLayout>
-        </Border>
+            </Border>
+        </Grid>
     </Grid>
 </ContentPage>
