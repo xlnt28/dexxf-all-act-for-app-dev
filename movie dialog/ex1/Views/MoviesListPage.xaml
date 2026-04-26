@@ -6,21 +6,21 @@
              x:Class="MovieCatalog.Views.MoviesListPage"
              x:DataType="vm:MovieListViewModel"
              Title="Movies"
-             BackgroundColor="#0B1020"
+             BackgroundColor="#1A102B"
              BindingContext="{x:Static local:App.MainViewModel}">
 
     <Grid RowDefinitions="Auto,*" Padding="16" RowSpacing="16">
-        <Border StrokeThickness="0" BackgroundColor="#1D4ED8" StrokeShape="RoundRectangle 24" Padding="18">
+        <Border StrokeThickness="0" BackgroundColor="#F59E0B" StrokeShape="RoundRectangle 24" Padding="18">
             <VerticalStackLayout Spacing="6">
-                <Label Text="Movie Vault" TextColor="White" FontSize="30" FontAttributes="Bold" />
-                <Label Text="Tap any title to open details. Swipe left to remove it."
-                       TextColor="#DBEAFE"
+                <Label Text="Retro Cinema" TextColor="#451A03" FontSize="30" FontAttributes="Bold" />
+                <Label Text="Select a movie to inspect details. Swipe left to remove it."
+                       TextColor="#78350F"
                        FontSize="14" />
             </VerticalStackLayout>
         </Border>
 
         <ListView Grid.Row="1"
-                  BackgroundColor="#0B1020"
+                  BackgroundColor="#1A102B"
                   HasUnevenRows="True"
                   SeparatorVisibility="None"
                   ItemsSource="{Binding Movies}"
@@ -29,12 +29,12 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="vm:MovieViewModel">
                     <ViewCell>
-                        <Border Margin="0,0,0,12" Padding="14" BackgroundColor="#111827" Stroke="#334155" StrokeShape="RoundRectangle 16">
+                        <Border Margin="0,0,0,12" Padding="14" BackgroundColor="#2A1C45" Stroke="#A78BFA" StrokeShape="RoundRectangle 16">
                             <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
-                                <Label Text="🎬" FontSize="28" VerticalOptions="Center" />
+                                <Label Text="📼" FontSize="28" VerticalOptions="Center" />
                                 <VerticalStackLayout Grid.Column="1" Spacing="2">
-                                    <Label Text="{Binding Title}" TextColor="White" FontSize="18" FontAttributes="Bold" />
-                                    <Label Text="Tap to view movie details" TextColor="#94A3B8" FontSize="13" />
+                                    <Label Text="{Binding Title}" TextColor="#FAF5FF" FontSize="18" FontAttributes="Bold" />
+                                    <Label Text="Open movie dossier" TextColor="#C4B5FD" FontSize="13" />
                                 </VerticalStackLayout>
                             </Grid>
                         </Border>
